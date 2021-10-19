@@ -18,6 +18,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1vk-cX-IxR">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Nnz-pE-izd">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nnz-pE-izd" id="tdO-Fv-fzP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -30,9 +40,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xag-a0-iKX">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="CUU-4T-DEg">
+                            <connections>
+                                <action selector="editBoton:" destination="BYZ-38-t0r" id="PC5-99-2SO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WpB-jx-XhY">
                             <connections>
-                                <segue destination="D1Y-Ld-gcu" kind="show" id="akl-bu-Dq5"/>
+                                <segue destination="D1Y-Ld-gcu" kind="show" identifier="s" id="akl-bu-Dq5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -65,21 +80,39 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fux-zu-2LJ">
-                                <rect key="frame" x="179.5" y="344" width="55" height="30"/>
+                                <rect key="frame" x="179.5" y="399" width="55" height="30"/>
                                 <state key="normal" title="Agregar"/>
                                 <connections>
                                     <action selector="agregarTapped:" destination="D1Y-Ld-gcu" eventType="touchUpInside" id="Esh-z5-MPf"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categoria" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Le0-Tx-RaO">
+                                <rect key="frame" x="67" y="348" width="280" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcX-By-jcp">
+                                <rect key="frame" x="73" y="437" width="268" height="30"/>
+                                <state key="normal" title="Eliminar"/>
+                                <connections>
+                                    <action selector="eliminarTapped:" destination="D1Y-Ld-gcu" eventType="touchUpInside" id="Bri-GY-WDs"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="TRY-uo-F4B" firstAttribute="top" secondItem="Zyj-mM-fgS" secondAttribute="bottom" constant="20" id="LM8-Rv-xe9"/>
-                            <constraint firstItem="fux-zu-2LJ" firstAttribute="top" secondItem="TRY-uo-F4B" secondAttribute="bottom" constant="20" id="OwL-tA-BcA"/>
+                            <constraint firstItem="fux-zu-2LJ" firstAttribute="top" secondItem="Le0-Tx-RaO" secondAttribute="bottom" constant="17" id="OKT-9p-6dJ"/>
+                            <constraint firstItem="kcX-By-jcp" firstAttribute="trailing" secondItem="Le0-Tx-RaO" secondAttribute="trailing" constant="-6" id="R1t-yH-gWH"/>
                             <constraint firstItem="Zyj-mM-fgS" firstAttribute="centerX" secondItem="gfg-Gi-IVu" secondAttribute="centerX" id="TVh-7R-OpE"/>
+                            <constraint firstItem="kcX-By-jcp" firstAttribute="centerX" secondItem="fux-zu-2LJ" secondAttribute="centerX" id="XrG-Pf-hIa"/>
+                            <constraint firstItem="Le0-Tx-RaO" firstAttribute="leading" secondItem="gfg-Gi-IVu" secondAttribute="leading" constant="67" id="aWp-yp-aXH"/>
+                            <constraint firstItem="fux-zu-2LJ" firstAttribute="centerX" secondItem="TRY-uo-F4B" secondAttribute="centerX" id="aZk-cG-BxH"/>
+                            <constraint firstItem="fux-zu-2LJ" firstAttribute="top" secondItem="qcE-B2-ee2" secondAttribute="top" constant="399" id="avI-6r-z3D"/>
                             <constraint firstItem="TRY-uo-F4B" firstAttribute="centerX" secondItem="Zyj-mM-fgS" secondAttribute="centerX" id="gh7-pS-Z2Y"/>
                             <constraint firstItem="TRY-uo-F4B" firstAttribute="width" secondItem="Zyj-mM-fgS" secondAttribute="width" multiplier="0.114286" constant="248" id="ncB-q5-465"/>
-                            <constraint firstItem="fux-zu-2LJ" firstAttribute="centerX" secondItem="TRY-uo-F4B" secondAttribute="centerX" id="nvs-zs-Ngu"/>
+                            <constraint firstItem="gfg-Gi-IVu" firstAttribute="trailing" secondItem="Le0-Tx-RaO" secondAttribute="trailing" constant="67" id="rGC-Yy-Zun"/>
+                            <constraint firstItem="kcX-By-jcp" firstAttribute="top" secondItem="fux-zu-2LJ" secondAttribute="bottom" constant="8" id="vpK-9N-cb6"/>
                             <constraint firstItem="Zyj-mM-fgS" firstAttribute="top" secondItem="gfg-Gi-IVu" secondAttribute="top" constant="32" id="wrb-UE-pq7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gfg-Gi-IVu"/>
@@ -100,6 +133,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="JuegosImageView" destination="Zyj-mM-fgS" id="5OC-2M-gOR"/>
+                        <outlet property="agregarActualizarBoton" destination="fux-zu-2LJ" id="INb-5W-aw0"/>
+                        <outlet property="categoriaTextField" destination="Le0-Tx-RaO" id="8K4-BG-pBF"/>
+                        <outlet property="eliminarBoton" destination="kcX-By-jcp" id="3oY-Z3-e6R"/>
                         <outlet property="tituloTextField" destination="TRY-uo-F4B" id="YLk-yA-L31"/>
                     </connections>
                 </viewController>
